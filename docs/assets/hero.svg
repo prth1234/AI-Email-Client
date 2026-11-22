@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 250" width="100%" role="img" aria-labelledby="ae-hero-title ae-hero-desc">
+  <title id="ae-hero-title">AI Email Client</title>
+  <desc id="ae-hero-desc">Full-stack Gmail client built with React, GitHub Primer, and Express with OAuth 2.0 and split-pane reading.</desc>
+  <style>
+    .ae-hero-root {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .ae-hero-eyebrow {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      fill: #58a6ff;
+    }
+    .ae-hero-display {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      fill: #e6edf3;
+    }
+    .ae-hero-accent {
+      fill: #58a6ff;
+    }
+    .ae-hero-sub {
+      font-size: 15px;
+      fill: #8b949e;
+    }
+    .ae-hero-pill {
+      fill: none;
+      stroke: #30363d;
+      stroke-width: 1.2;
+    }
+    .ae-hero-pill-accent {
+      fill: none;
+      stroke: #58a6ff;
+      stroke-width: 1.2;
+    }
+    .ae-hero-pill-text {
+      font-size: 13px;
+      font-weight: 500;
+      fill: #c9d1d9;
+    }
+    .ae-hero-pill-text-accent {
+      font-size: 13px;
+      font-weight: 600;
+      fill: #58a6ff;
+    }
+    .ae-hero-dot {
+      animation: ae-hero-pulse 2.6s ease-in-out infinite;
+    }
+    @keyframes ae-hero-pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+    @media (prefers-color-scheme: light) {
+      .ae-hero-eyebrow { fill: #0969da; }
+      .ae-hero-display { fill: #24292f; }
+      .ae-hero-accent { fill: #0969da; }
+      .ae-hero-sub { fill: #57606a; }
+      .ae-hero-pill { stroke: #d0d7de; }
+      .ae-hero-pill-accent { stroke: #0969da; }
+      .ae-hero-pill-text { fill: #24292f; }
+      .ae-hero-pill-text-accent { fill: #0969da; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ae-hero-dot { animation: none; }
+    }
+  </style>
+
+  <g class="ae-hero-root" transform="translate(24, 32)">
+    <circle class="ae-hero-dot" cx="6" cy="10" r="4.5" fill="#58a6ff" />
+    <text class="ae-hero-eyebrow" x="20" y="15">REACT 18 / PRIMER UI / EXPRESS / GMAIL API</text>
+
+    <text class="ae-hero-display" x="0" y="76">
+      AI Email <tspan class="ae-hero-accent">Client</tspan>
+    </text>
+
+    <text class="ae-hero-sub" x="0" y="114">
+      Split-pane Gmail reader with OAuth 2.0 authentication, resizable sidebar, and Primer dark/light theming.
+    </text>
+
+    <g transform="translate(0, 146)">
+      <rect class="ae-hero-pill-accent" x="0" y="0" width="128" height="32" rx="8" />
+      <text class="ae-hero-pill-text-accent" x="64" y="21" text-anchor="middle">@primer/react</text>
+
+      <rect class="ae-hero-pill" x="140" y="0" width="108" height="32" rx="8" />
+      <text class="ae-hero-pill-text" x="194" y="21" text-anchor="middle">Express 4</text>
+
+      <rect class="ae-hero-pill" x="260" y="0" width="112" height="32" rx="8" />
+      <text class="ae-hero-pill-text" x="316" y="21" text-anchor="middle">Gmail v1</text>
+
+      <rect class="ae-hero-pill" x="384" y="0" width="104" height="32" rx="8" />
+      <text class="ae-hero-pill-text" x="436" y="21" text-anchor="middle">OAuth 2.0</text>
+
+      <rect class="ae-hero-pill" x="500" y="0" width="90" height="32" rx="8" />
+      <text class="ae-hero-pill-text" x="545" y="21" text-anchor="middle">Vite 7</text>
+    </g>
+  </g>
+</svg>

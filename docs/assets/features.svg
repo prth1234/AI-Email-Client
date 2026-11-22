@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 220" width="100%" role="img" aria-labelledby="ae-feat-title ae-feat-desc">
+  <title id="ae-feat-title">AI Email Client Key Features</title>
+  <desc id="ae-feat-desc">Three capability cards: OAuth 2.0 and Gmail API, Resizable Primer UI, and MIME Body Extraction.</desc>
+  <style>
+    .ae-feat-root {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .ae-feat-card {
+      fill: none;
+      stroke: #30363d;
+      stroke-width: 1.2;
+    }
+    .ae-feat-card-accent {
+      fill: none;
+      stroke: #58a6ff;
+      stroke-width: 1.2;
+    }
+    .ae-feat-tag {
+      font-size: 12.5px;
+      font-weight: 600;
+      fill: #58a6ff;
+    }
+    .ae-feat-title {
+      font-size: 17px;
+      font-weight: 700;
+      fill: #e6edf3;
+    }
+    .ae-feat-body {
+      font-size: 13.5px;
+      fill: #8b949e;
+    }
+    @media (prefers-color-scheme: light) {
+      .ae-feat-card { stroke: #d0d7de; }
+      .ae-feat-card-accent { stroke: #0969da; }
+      .ae-feat-tag { fill: #0969da; }
+      .ae-feat-title { fill: #24292f; }
+      .ae-feat-body { fill: #57606a; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+
+  <g class="ae-feat-root" transform="translate(24, 16)">
+    <!-- Card 1 -->
+    <rect class="ae-feat-card" x="0" y="0" width="272" height="184" rx="10" />
+    <text class="ae-feat-tag" x="22" y="34">01 / AUTHENTICATION</text>
+    <text class="ae-feat-title" x="22" y="64">OAuth 2.0 &amp; Gmail API</text>
+    <text class="ae-feat-body" x="22" y="96">Express OAuth2 callback</text>
+    <text class="ae-feat-body" x="22" y="118">flow with gmail.readonly,</text>
+    <text class="ae-feat-body" x="22" y="140">gmail.modify, and</text>
+    <text class="ae-feat-body" x="22" y="162">mark-as-read endpoints.</text>
+
+    <!-- Card 2 -->
+    <rect class="ae-feat-card-accent" x="290" y="0" width="272" height="184" rx="10" />
+    <text class="ae-feat-tag" x="312" y="34">02 / INTERFACE</text>
+    <text class="ae-feat-title" x="312" y="64">Resizable Primer UI</text>
+    <text class="ae-feat-body" x="312" y="96">Drag-to-resize sidebar</text>
+    <text class="ae-feat-body" x="312" y="118">(280px to 800px), '/' key</text>
+    <text class="ae-feat-body" x="312" y="140">search focus, and persisted</text>
+    <text class="ae-feat-body" x="312" y="162">dark/light color mode.</text>
+
+    <!-- Card 3 -->
+    <rect class="ae-feat-card" x="580" y="0" width="272" height="184" rx="10" />
+    <text class="ae-feat-tag" x="602" y="34">03 / PARSING</text>
+    <text class="ae-feat-title" x="602" y="64">MIME Body Extraction</text>
+    <text class="ae-feat-body" x="602" y="96">Recursive MIME part</text>
+    <text class="ae-feat-body" x="602" y="118">traversal decodes base64url</text>
+    <text class="ae-feat-body" x="602" y="140">HTML and plain-text</text>
+    <text class="ae-feat-body" x="602" y="162">payloads cleanly.</text>
+  </g>
+</svg>
