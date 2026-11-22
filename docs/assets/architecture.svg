@@ -14,22 +14,12 @@
     .ae-arch-box {
       fill: none;
       stroke: #30363d;
-      stroke-width: 1.2;
-    }
-    .ae-arch-box-accent {
-      fill: none;
-      stroke: #58a6ff;
-      stroke-width: 1.4;
+      stroke-width: 1.25;
     }
     .ae-arch-title {
       font-size: 17px;
       font-weight: 700;
       fill: #e6edf3;
-    }
-    .ae-arch-title-accent {
-      font-size: 17px;
-      font-weight: 700;
-      fill: #58a6ff;
     }
     .ae-arch-body {
       font-size: 13px;
@@ -43,25 +33,65 @@
     .ae-arch-line {
       fill: none;
       stroke: #484f58;
-      stroke-width: 1.4;
+      stroke-width: 1.5;
       stroke-dasharray: 5 4;
-      animation: ae-arch-dash 18s linear infinite;
+      animation: ae-arch-dash 16s linear infinite;
     }
+    .ae-arch-signal {
+      fill: #58a6ff;
+    }
+
+    /* Synchronized 6s cycle across 3 nodes */
+    .ae-arch-n1-box { animation: ae-arch-box-pulse 6s ease-in-out infinite 0s; }
+    .ae-arch-n2-box { animation: ae-arch-box-pulse 6s ease-in-out infinite 2s; }
+    .ae-arch-n3-box { animation: ae-arch-box-pulse 6s ease-in-out infinite 4s; }
+
+    .ae-arch-n1-title { animation: ae-arch-title-pulse 6s ease-in-out infinite 0s; }
+    .ae-arch-n2-title { animation: ae-arch-title-pulse 6s ease-in-out infinite 2s; }
+    .ae-arch-n3-title { animation: ae-arch-title-pulse 6s ease-in-out infinite 4s; }
+
     @keyframes ae-arch-dash {
       to { stroke-dashoffset: -180; }
     }
+    @keyframes ae-arch-box-pulse {
+      0%, 40%, 100% { stroke: #30363d; stroke-width: 1.25; }
+      10%, 28% { stroke: #58a6ff; stroke-width: 1.9; }
+    }
+    @keyframes ae-arch-title-pulse {
+      0%, 40%, 100% { fill: #e6edf3; }
+      10%, 28% { fill: #58a6ff; }
+    }
+
     @media (prefers-color-scheme: light) {
       .ae-arch-heading { fill: #57606a; }
       .ae-arch-box { stroke: #d0d7de; }
-      .ae-arch-box-accent { stroke: #0969da; }
       .ae-arch-title { fill: #24292f; }
-      .ae-arch-title-accent { fill: #0969da; }
       .ae-arch-body { fill: #57606a; }
       .ae-arch-mono { fill: #0969da; }
       .ae-arch-line { stroke: #8c959f; }
+      .ae-arch-signal { fill: #0969da; }
+      .ae-arch-n1-box, .ae-arch-n2-box, .ae-arch-n3-box {
+        animation-name: ae-arch-box-pulse-light;
+      }
+      .ae-arch-n1-title, .ae-arch-n2-title, .ae-arch-n3-title {
+        animation-name: ae-arch-title-pulse-light;
+      }
+    }
+    @keyframes ae-arch-box-pulse-light {
+      0%, 40%, 100% { stroke: #d0d7de; stroke-width: 1.25; }
+      10%, 28% { stroke: #0969da; stroke-width: 1.9; }
+    }
+    @keyframes ae-arch-title-pulse-light {
+      0%, 40%, 100% { fill: #24292f; }
+      10%, 28% { fill: #0969da; }
     }
     @media (prefers-reduced-motion: reduce) {
       .ae-arch-line { animation: none; stroke-dasharray: none; }
+      .ae-arch-n1-box, .ae-arch-n2-box, .ae-arch-n3-box,
+      .ae-arch-n1-title, .ae-arch-n2-title, .ae-arch-n3-title {
+        animation: none !important;
+      }
+      .ae-arch-signal { display: none; }
     }
   </style>
 
@@ -69,9 +99,9 @@
     <text class="ae-arch-heading" x="24" y="28">FULL-STACK OAUTH &amp; GMAIL API FLOW</text>
 
     <!-- Frontend -->
-    <rect class="ae-arch-box-accent" x="24" y="52" width="256" height="178" rx="10" />
+    <rect class="ae-arch-box ae-arch-n1-box" x="24" y="52" width="256" height="178" rx="8" />
     <text class="ae-arch-mono" x="44" y="82">localhost:5173</text>
-    <text class="ae-arch-title-accent" x="44" y="112">React + Primer UI</text>
+    <text class="ae-arch-title ae-arch-n1-title" x="44" y="112">React + Primer UI</text>
     <text class="ae-arch-body" x="44" y="140">LoginView &amp; Sidebar (280-800px)</text>
     <text class="ae-arch-body" x="44" y="162">EmailList &amp; EmailDetail</text>
     <text class="ae-arch-body" x="44" y="184">'/' search shortcut</text>
@@ -79,11 +109,14 @@
 
     <!-- Connector 1 -->
     <path class="ae-arch-line" d="M 280 141 L 328 141" />
+    <circle class="ae-arch-signal" r="3.5">
+      <animateMotion dur="6s" repeatCount="indefinite" path="M 280 141 L 328 141" keyPoints="0;1;1" keyTimes="0;0.33;1" calcMode="linear" />
+    </circle>
 
     <!-- Backend -->
-    <rect class="ae-arch-box" x="328" y="52" width="268" height="178" rx="10" />
+    <rect class="ae-arch-box ae-arch-n2-box" x="328" y="52" width="268" height="178" rx="8" />
     <text class="ae-arch-mono" x="348" y="82">localhost:3001</text>
-    <text class="ae-arch-title" x="348" y="112">Express API Server</text>
+    <text class="ae-arch-title ae-arch-n2-title" x="348" y="112">Express API Server</text>
     <text class="ae-arch-body" x="348" y="140">GET /auth/google &amp; /oauth2callback</text>
     <text class="ae-arch-body" x="348" y="162">GET /api/gmail/profile</text>
     <text class="ae-arch-body" x="348" y="184">GET /api/emails &amp; /api/emails/:id</text>
@@ -91,11 +124,14 @@
 
     <!-- Connector 2 -->
     <path class="ae-arch-line" d="M 596 141 L 644 141" />
+    <circle class="ae-arch-signal" r="3.5">
+      <animateMotion dur="6s" repeatCount="indefinite" path="M 596 141 L 644 141" keyPoints="0;0;1;1" keyTimes="0;0.33;0.66;1" calcMode="linear" />
+    </circle>
 
     <!-- Google Cloud -->
-    <rect class="ae-arch-box" x="644" y="52" width="232" height="178" rx="10" />
+    <rect class="ae-arch-box ae-arch-n3-box" x="644" y="52" width="232" height="178" rx="8" />
     <text class="ae-arch-mono" x="664" y="82">googleapis v126</text>
-    <text class="ae-arch-title" x="664" y="112">Google Gmail v1</text>
+    <text class="ae-arch-title ae-arch-n3-title" x="664" y="112">Google Gmail v1</text>
     <text class="ae-arch-body" x="664" y="140">OAuth 2.0 Web Client</text>
     <text class="ae-arch-body" x="664" y="162">gmail.readonly scope</text>
     <text class="ae-arch-body" x="664" y="184">gmail.modify scope</text>

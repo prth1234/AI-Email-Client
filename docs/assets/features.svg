@@ -8,13 +8,18 @@
     .ae-feat-card {
       fill: none;
       stroke: #30363d;
-      stroke-width: 1.2;
+      stroke-width: 1.25;
+      animation: ae-feat-pulse 6s ease-in-out infinite;
     }
-    .ae-feat-card-accent {
-      fill: none;
-      stroke: #58a6ff;
-      stroke-width: 1.2;
+    .ae-feat-c1 { animation-delay: 0s; }
+    .ae-feat-c2 { animation-delay: 2s; }
+    .ae-feat-c3 { animation-delay: 4s; }
+
+    @keyframes ae-feat-pulse {
+      0%, 40%, 100% { stroke: #30363d; stroke-width: 1.25; }
+      10%, 28% { stroke: #58a6ff; stroke-width: 1.9; }
     }
+
     .ae-feat-tag {
       font-size: 12.5px;
       font-weight: 600;
@@ -29,21 +34,48 @@
       font-size: 13.5px;
       fill: #8b949e;
     }
+    .ae-feat-icon {
+      fill: none;
+      stroke: #58a6ff;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 80;
+      stroke-dashoffset: 80;
+      animation: ae-feat-draw 3s ease-out infinite alternate;
+    }
+    .ae-feat-i1 { animation-delay: 0s; }
+    .ae-feat-i2 { animation-delay: 0.6s; }
+    .ae-feat-i3 { animation-delay: 1.2s; }
+
+    @keyframes ae-feat-draw {
+      0% { stroke-dashoffset: 80; opacity: 0.45; }
+      45%, 100% { stroke-dashoffset: 0; opacity: 1; }
+    }
+
     @media (prefers-color-scheme: light) {
-      .ae-feat-card { stroke: #d0d7de; }
-      .ae-feat-card-accent { stroke: #0969da; }
+      .ae-feat-card { stroke: #d0d7de; animation-name: ae-feat-pulse-light; }
       .ae-feat-tag { fill: #0969da; }
       .ae-feat-title { fill: #24292f; }
       .ae-feat-body { fill: #57606a; }
+      .ae-feat-icon { stroke: #0969da; }
+    }
+    @keyframes ae-feat-pulse-light {
+      0%, 40%, 100% { stroke: #d0d7de; stroke-width: 1.25; }
+      10%, 28% { stroke: #0969da; stroke-width: 1.9; }
     }
     @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; transition: none !important; }
+      .ae-feat-card, .ae-feat-icon {
+        animation: none !important;
+        stroke-dashoffset: 0;
+      }
     }
   </style>
 
   <g class="ae-feat-root" transform="translate(24, 16)">
     <!-- Card 1 -->
-    <rect class="ae-feat-card" x="0" y="0" width="272" height="184" rx="10" />
+    <rect class="ae-feat-card ae-feat-c1" x="0" y="0" width="272" height="184" rx="8" />
+    <path class="ae-feat-icon ae-feat-i1" d="M 232 30 v -4 a 5 5 0 0 1 10 0 v 4 m -12 0 h 14 v 10 h -14 z" />
     <text class="ae-feat-tag" x="22" y="34">01 / AUTHENTICATION</text>
     <text class="ae-feat-title" x="22" y="64">OAuth 2.0 &amp; Gmail API</text>
     <text class="ae-feat-body" x="22" y="96">Express OAuth2 callback</text>
@@ -52,7 +84,8 @@
     <text class="ae-feat-body" x="22" y="162">mark-as-read endpoints.</text>
 
     <!-- Card 2 -->
-    <rect class="ae-feat-card-accent" x="290" y="0" width="272" height="184" rx="10" />
+    <rect class="ae-feat-card ae-feat-c2" x="290" y="0" width="272" height="184" rx="8" />
+    <path class="ae-feat-icon ae-feat-i2" d="M 520 22 h 18 v 16 h -18 z M 526 22 v 16" />
     <text class="ae-feat-tag" x="312" y="34">02 / INTERFACE</text>
     <text class="ae-feat-title" x="312" y="64">Resizable Primer UI</text>
     <text class="ae-feat-body" x="312" y="96">Drag-to-resize sidebar</text>
@@ -61,7 +94,8 @@
     <text class="ae-feat-body" x="312" y="162">dark/light color mode.</text>
 
     <!-- Card 3 -->
-    <rect class="ae-feat-card" x="580" y="0" width="272" height="184" rx="10" />
+    <rect class="ae-feat-card ae-feat-c3" x="580" y="0" width="272" height="184" rx="8" />
+    <path class="ae-feat-icon ae-feat-i3" d="M 814 24 l -5 6 l 5 6 M 824 24 l 5 6 l -5 6 M 821 22 l -4 16" />
     <text class="ae-feat-tag" x="602" y="34">03 / PARSING</text>
     <text class="ae-feat-title" x="602" y="64">MIME Body Extraction</text>
     <text class="ae-feat-body" x="602" y="96">Recursive MIME part</text>
