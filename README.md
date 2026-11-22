@@ -3,9 +3,10 @@
 </p>
 
 <p align="center">
-  <a href="#prerequisites">Prerequisites</a> &middot;
-  <a href="#setup--installation">Setup</a> &middot;
+  <a href="#overview">Overview</a> &middot;
+  <a href="#features">Features</a> &middot;
   <a href="#architecture">Architecture</a> &middot;
+  <a href="#setup--installation">Setup</a> &middot;
   <a href="#api-endpoints">API Endpoints</a>
 </p>
 
@@ -37,7 +38,8 @@
   <img src="docs/assets/architecture.svg" alt="Full-stack OAuth and Gmail API flow" width="100%" />
 </p>
 
-### Tech Stack
+<details>
+<summary><strong>Tech Stack Breakdown</strong></summary>
 
 | Layer | Technology |
 |---|---|
@@ -45,26 +47,40 @@
 | Backend | Node.js, Express 4, `googleapis` 126, `cors`, `dotenv` |
 | Auth | Google OAuth 2.0 Web Application flow |
 
----
-
-## Prerequisites
-
-1. **Node.js & npm** installed locally.
-2. **Google Cloud Project** with the **Gmail API** enabled:
-   - Go to [Google Cloud Console](https://console.cloud.google.com/) and create a project.
-   - Under **APIs & Services > Library**, enable **Gmail API**.
-   - Under **APIs & Services > OAuth consent screen**, select **External**, fill in app details, and add your Gmail address under **Test users**.
-   - Under **APIs & Services > Credentials**, create an **OAuth client ID** (type: **Web application**) with authorized redirect URI:
-     ```text
-     http://localhost:3001/oauth2callback
-     ```
-   - Copy your **Client ID** and **Client Secret**.
+</details>
 
 ---
 
 ## Setup & Installation
 
-### 1. Configure Environment Variables
+### Quick Start
+
+```bash
+chmod +x setup.sh start.sh
+./setup.sh
+./start.sh dev
+```
+
+Open `http://localhost:5173`, sign in with your Google test-user account, and browse your inbox.
+
+<details>
+<summary><strong>Prerequisites (Google Cloud &amp; OAuth 2.0 Setup)</strong></summary>
+
+1. **Node.js &amp; npm** installed locally.
+2. **Google Cloud Project** with the **Gmail API** enabled:
+   - Go to [Google Cloud Console](https://console.cloud.google.com/) and create a project.
+   - Under **APIs &amp; Services &gt; Library**, enable **Gmail API**.
+   - Under **APIs &amp; Services &gt; OAuth consent screen**, select **External**, fill in app details, and add your Gmail address under **Test users**.
+   - Under **APIs &amp; Services &gt; Credentials**, create an **OAuth client ID** (type: **Web application**) with authorized redirect URI:
+     ```text
+     http://localhost:3001/oauth2callback
+     ```
+   - Copy your **Client ID** and **Client Secret**.
+
+</details>
+
+<details>
+<summary><strong>Environment Variables (<code>backend/.env</code>) &amp; Manual Run</strong></summary>
 
 Create `backend/.env` with your Google OAuth credentials:
 
@@ -75,31 +91,14 @@ REDIRECT_URI=http://localhost:3001/oauth2callback
 PORT=3001
 ```
 
-### 2. Install Dependencies
-
-Run the provided setup script from the repository root:
-
-```bash
-chmod +x setup.sh start.sh
-./setup.sh
-```
-
-Or install manually in each directory:
+Install dependencies manually if not using `./setup.sh`:
 
 ```bash
 cd backend && npm install
 cd ../frontend && npm install
 ```
 
-### 3. Run the Application
-
-Use the dev launcher script (starts backend on `3001` and frontend on `5173`, automatically finding free ports if needed):
-
-```bash
-./start.sh dev
-```
-
-Or start each server separately:
+Start each server separately:
 
 ```bash
 # Terminal 1 - Backend (http://localhost:3001)
@@ -109,11 +108,14 @@ cd backend && npm start
 cd frontend && npm run dev
 ```
 
-Open `http://localhost:5173`, sign in with your Google test-user account, and browse your inbox.
+</details>
 
 ---
 
 ## API Endpoints
+
+<details open>
+<summary><strong>Express Backend Routes (<code>http://localhost:3001</code>)</strong></summary>
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -125,9 +127,14 @@ Open `http://localhost:5173`, sign in with your Google test-user account, and br
 | `GET` | `/api/emails/:id` | Fetches full decoded HTML and plain-text body for a message |
 | `POST` | `/api/emails/:id/read` | Marks a message as read |
 
+</details>
+
 ---
 
 ## Project Structure
+
+<details>
+<summary><strong>Repository File Tree</strong></summary>
 
 ```text
 AI-Email-Client/
@@ -149,3 +156,5 @@ AI-Email-Client/
             ├── EmailList.jsx     # Message list
             └── EmailDetail.jsx   # Message body viewer
 ```
+
+</details>
