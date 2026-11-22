@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 260" width="100%" role="img" aria-labelledby="ae-arch-title ae-arch-desc">
+  <title id="ae-arch-title">AI Email Client Full-Stack Architecture</title>
+  <desc id="ae-arch-desc">Data flow between React Primer frontend on port 5173, Express backend on port 3001, and Google OAuth and Gmail API.</desc>
+  <style>
+    .ae-arch-root {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .ae-arch-heading {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      fill: #8b949e;
+    }
+    .ae-arch-box {
+      fill: none;
+      stroke: #30363d;
+      stroke-width: 1.2;
+    }
+    .ae-arch-box-accent {
+      fill: none;
+      stroke: #58a6ff;
+      stroke-width: 1.4;
+    }
+    .ae-arch-title {
+      font-size: 17px;
+      font-weight: 700;
+      fill: #e6edf3;
+    }
+    .ae-arch-title-accent {
+      font-size: 17px;
+      font-weight: 700;
+      fill: #58a6ff;
+    }
+    .ae-arch-body {
+      font-size: 13px;
+      fill: #8b949e;
+    }
+    .ae-arch-mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12.5px;
+      fill: #58a6ff;
+    }
+    .ae-arch-line {
+      fill: none;
+      stroke: #484f58;
+      stroke-width: 1.4;
+      stroke-dasharray: 5 4;
+      animation: ae-arch-dash 18s linear infinite;
+    }
+    @keyframes ae-arch-dash {
+      to { stroke-dashoffset: -180; }
+    }
+    @media (prefers-color-scheme: light) {
+      .ae-arch-heading { fill: #57606a; }
+      .ae-arch-box { stroke: #d0d7de; }
+      .ae-arch-box-accent { stroke: #0969da; }
+      .ae-arch-title { fill: #24292f; }
+      .ae-arch-title-accent { fill: #0969da; }
+      .ae-arch-body { fill: #57606a; }
+      .ae-arch-mono { fill: #0969da; }
+      .ae-arch-line { stroke: #8c959f; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ae-arch-line { animation: none; stroke-dasharray: none; }
+    }
+  </style>
+
+  <g class="ae-arch-root">
+    <text class="ae-arch-heading" x="24" y="28">FULL-STACK OAUTH &amp; GMAIL API FLOW</text>
+
+    <!-- Frontend -->
+    <rect class="ae-arch-box-accent" x="24" y="52" width="256" height="178" rx="10" />
+    <text class="ae-arch-mono" x="44" y="82">localhost:5173</text>
+    <text class="ae-arch-title-accent" x="44" y="112">React + Primer UI</text>
+    <text class="ae-arch-body" x="44" y="140">LoginView &amp; Sidebar (280-800px)</text>
+    <text class="ae-arch-body" x="44" y="162">EmailList &amp; EmailDetail</text>
+    <text class="ae-arch-body" x="44" y="184">'/' search shortcut</text>
+    <text class="ae-arch-body" x="44" y="206">Dark / Light mode toggle</text>
+
+    <!-- Connector 1 -->
+    <path class="ae-arch-line" d="M 280 141 L 328 141" />
+
+    <!-- Backend -->
+    <rect class="ae-arch-box" x="328" y="52" width="268" height="178" rx="10" />
+    <text class="ae-arch-mono" x="348" y="82">localhost:3001</text>
+    <text class="ae-arch-title" x="348" y="112">Express API Server</text>
+    <text class="ae-arch-body" x="348" y="140">GET /auth/google &amp; /oauth2callback</text>
+    <text class="ae-arch-body" x="348" y="162">GET /api/gmail/profile</text>
+    <text class="ae-arch-body" x="348" y="184">GET /api/emails &amp; /api/emails/:id</text>
+    <text class="ae-arch-body" x="348" y="206">POST /api/emails/:id/read</text>
+
+    <!-- Connector 2 -->
+    <path class="ae-arch-line" d="M 596 141 L 644 141" />
+
+    <!-- Google Cloud -->
+    <rect class="ae-arch-box" x="644" y="52" width="232" height="178" rx="10" />
+    <text class="ae-arch-mono" x="664" y="82">googleapis v126</text>
+    <text class="ae-arch-title" x="664" y="112">Google Gmail v1</text>
+    <text class="ae-arch-body" x="664" y="140">OAuth 2.0 Web Client</text>
+    <text class="ae-arch-body" x="664" y="162">gmail.readonly scope</text>
+    <text class="ae-arch-body" x="664" y="184">gmail.modify scope</text>
+    <text class="ae-arch-body" x="664" y="206">userinfo.email scope</text>
+  </g>
+</svg>
